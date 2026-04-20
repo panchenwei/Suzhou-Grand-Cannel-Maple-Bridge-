@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Reset npm install state
+        run: rm -rf node_modules package-lock.json
+
       - name: Install dependencies
         run: npm install
 
