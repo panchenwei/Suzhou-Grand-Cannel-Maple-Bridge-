@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;700&family=Manrope:wght@200;300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Manrope", sans-serif;
+
+  --color-surface: #000000;
+  --color-surface-low: #050505;
+  --color-surface-container: #0a0a0a;
+  --color-surface-high: #111111;
+  --color-surface-lowest: #000000;
+  --color-surface-bright: #151515;
+  
+  --color-primary: #C5A059;
+  --color-primary-container: #8E7341;
+  --color-secondary: #705E3F;
+  
+  --color-on-surface-variant: rgba(212, 175, 55, 0.4);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-[#D1C9BC] font-sans antialiased font-light;
+  }
+}
+
+.text-label {
+  @apply text-[10px] uppercase tracking-[0.3em] font-medium text-primary/60;
+}
+
+.glass-panel {
+  @apply bg-black/70 backdrop-blur-3xl;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #D4AF37, #C5A059, #8E7341);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+  @apply border border-primary/20 bg-primary/[0.03] text-primary/80 px-6 py-2 rounded-none font-light tracking-[0.2em] text-[10px] uppercase hover:bg-primary/[0.08] hover:border-primary/40 transition-all duration-500;
+}
+
+.ghost-border {
+  @apply border border-primary/10;
+}
