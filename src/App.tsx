@@ -17,9 +17,20 @@ const IMAGES = {
   sketches: "https://lh3.googleusercontent.com/aida-public/AB6AXuB2DLJ1gBncqs23siAgo4WDKOpKusjP5IhpfXyrPSKvvmmUfVS0ArZyDJx2Q5fU-fVR7ghwLRfx6RqIO3NhvUtEQpLY_J6s227chtYNLBoj1BF1Q_3Dx-8gMrigPb8f5-O3JcNWm-w0_XSmcacRIv3f7Wo-3G-OVFEOUb905mkwdVtuiucEQAOHsxk-Cgi43xs2skPAWHciJvKWQrPh9M1u1D1RwnDBzu3nq8SKW3b_nlmKIgepLH-0YeUv42w_K7AlU1Nk2nl7RTCa",
   wireframe1: "https://lh3.googleusercontent.com/aida-public/AB6AXuBcsArCdFyaJcqntoBR6TxI2ipFzycniFcQpWp3VaguPJkwGwGkFmvLfxsRuBNcu39dcxb3UNfTQUHODP3So_MbtdljvO9-Z1WziV_wqfCCQ7zbi6kQ8LpjcZ_iJPyrN69QzNimyRBhBIrjsohMVfJQ9zeR057cqqVOedoM1nGdf-XukOjAwHKBKjOZ3bq935dCJ27o-qcwLXUr8qZ5fmhojguaBFh7djZt3HGREuVJYPC-pnkHTyKqtnD-9H4wnC3dOGkWVusLR1iU",
   wireframe2: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmaiQj5X_qTgy5hKmFFVZEL77xByJ2_6XpndN8M1Ml6z2-33ivfE0fo_mp7sL1sTn5uUMLXvFrcRCW5iWbueY1gW1fBgRqX9-2TljCKxFCs8qIds8iHI-a1rCs7kLlVVsWEwFh9kEgvo2Yp1tcp6h2A9lUUOorjNPMBy3lYCD3wR8YNiP48sxWBCg6OzDX0LWc5-z1yzJpHQ5kqkfzX--HFEtdOSDMIkxI7XXYQq74YrJOU6U0WU-2BMEq4h5LHEyD4ZNnlZgP1oET",
-  person1: "https://lh3.googleusercontent.com/aida/ADBb0uhrNhsIWvAaHErRNRZkNwGYQbNVil7Q5r1wyUbP5fVwmxM5N7bSpzwMkxsDK24VqlVIVhoYH5hIBMVTeXCqrjLIh5_EnEcE1_9Dz53iaHQQBhPXUe8edMIDJQGLl127uXAkuYETWWxSv8Vvf64BVWP-rdstEWmkFTTNURRf1-MOhmyRWn4VzOyu7xyAMJ3wDmVUatEOCdpz2GXr-iXI8GZshhCGPUamEbOeI7Zl_whB5V6D93VjbywlAYsGeJ50xmUxa4UqqSH9gdM",
+  person1: `${import.meta.env.BASE_URL}guo.png`,
   person2: `${import.meta.env.BASE_URL}yiming-wang.png`,
 };
+
+const JOURNEY_MAP_IMAGES = [
+  {
+    name: "Xicheng Guo",
+    image: new URL("../journalmap/XichengGuo.png", import.meta.url).href,
+  },
+  {
+    name: "Yiming Wang",
+    image: new URL("../journalmap/YimingWang.png", import.meta.url).href,
+  },
+];
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -216,50 +227,50 @@ export default function App() {
                 <h2 className="text-7xl font-serif font-light italic">User Personas</h2>
              </div>
 
-             <div className="flex flex-col gap-32">
+             <div className="flex flex-col gap-20">
                 {/* Persona 1 */}
                 <motion.div 
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="border border-white/10 bg-white/[0.01] p-12 md:p-20 flex flex-col gap-16 relative overflow-hidden group"
+                  className="border border-white/10 bg-white/[0.01] p-8 md:p-10 flex flex-col gap-8 relative overflow-hidden group"
                 >
                    <div className="absolute top-0 right-0 p-12 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity duration-1000">
                       <User className="w-96 h-96 -mr-32 -mt-32" />
                    </div>
                    
-                   <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start relative z-10">
-                      <div className="md:col-span-5 space-y-10">
-                        <div className="space-y-4">
+                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start relative z-10">
+                      <div className="md:col-span-4 space-y-5">
+                        <div className="space-y-3">
                            <p className="text-label text-primary opacity-60">ARCHETYPE 01</p>
-                           <h3 className="text-6xl font-serif font-light leading-[0.9] tracking-tighter">"Xicheng <br/><span className="italic opacity-40">Guo"</span></h3>
+                           <h3 className="text-5xl md:text-[3.2rem] font-serif font-light leading-[0.88] tracking-tighter">"Xicheng <br/><span className="italic opacity-40">Guo"</span></h3>
                         </div>
-                        <div className="aspect-[4/5] bg-neutral-900 border border-primary/10 overflow-hidden p-6 relative">
+                        <div className="aspect-[4/3] md:aspect-[5/4] bg-neutral-900 border border-primary/10 overflow-hidden p-3 relative">
                            <img src={IMAGES.person1} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" referrerPolicy="no-referrer" />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                           <div className="absolute bottom-10 left-10">
-                              <p className="text-xs uppercase tracking-widest text-primary/40">21, XJTLU Student, EST Major</p>
+                           <div className="absolute bottom-4 left-4 right-4">
+                              <p className="text-[9px] uppercase tracking-[0.22em] text-primary/40">21, XJTLU Student, EST Major</p>
                            </div>
                         </div>
                       </div>
                       
-                      <div className="md:col-span-7 space-y-16">
-                         <div className="italic text-primary/60 text-2xl leading-relaxed border-l-4 border-primary/20 pl-10 py-2">
+                      <div className="md:col-span-8 space-y-6">
+                         <div className="italic text-primary/60 text-xl md:text-2xl leading-relaxed border-l-4 border-primary/20 pl-6 py-1">
                            “I want Maple Bridge to be more than just a place for taking photos.”
                          </div>
 
-                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-                            <div>
-                               <p className="text-label mb-4 text-primary opacity-40">BACKGROUND</p>
-                               <p className="text-base text-primary/50 leading-relaxed font-light">Age 21, XJTLU student majoring in EST, originally from another city. New to Suzhou's deep culture.</p>
+                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                            <div className="min-w-0">
+                               <p className="text-label mb-2 text-primary opacity-40">BACKGROUND</p>
+                               <p className="text-sm md:text-[15px] text-primary/50 leading-6 font-light">Age 21, XJTLU student majoring in EST, originally from another city. New to Suzhou's deep culture.</p>
                             </div>
-                            <div>
-                               <p className="text-label mb-4 text-primary opacity-40">GOALS</p>
-                               <p className="text-base text-primary/50 leading-relaxed font-light">Visit Maple Bridge in a clear and efficient way, understand what is worth seeing, and experience local culture interestingly.</p>
+                            <div className="min-w-0">
+                               <p className="text-label mb-2 text-primary opacity-40">GOALS</p>
+                               <p className="text-sm md:text-[15px] text-primary/50 leading-6 font-light">Visit Maple Bridge in a clear and efficient way, understand what is worth seeing, and experience local culture interestingly.</p>
                             </div>
-                            <div>
-                               <p className="text-label mb-4 text-primary opacity-40">NEEDS</p>
-                               <p className="text-base text-primary/50 leading-relaxed font-light">Clear route guidance, easy cultural interpretation, and more interactive participation.</p>
+                            <div className="min-w-0">
+                               <p className="text-label mb-2 text-primary opacity-40">NEEDS</p>
+                               <p className="text-sm md:text-[15px] text-primary/50 leading-6 font-light">Clear route guidance, easy cultural interpretation, and more interactive participation.</p>
                             </div>
                             <div>
                                <p className="text-label mb-4 text-primary opacity-40">PAIN POINTS</p>
@@ -267,8 +278,8 @@ export default function App() {
                             </div>
                          </div>
 
-                         <div className="pt-10">
-                            <a href="#research" className="btn-primary inline-flex items-center gap-6 px-12 h-16 group/btn">
+                         <div className="pt-1">
+                            <a href="#research" className="btn-primary inline-flex items-center gap-4 px-8 h-12 group/btn">
                                View Detailed Journey
                                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform opacity-40" />
                             </a>
@@ -282,44 +293,44 @@ export default function App() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="border border-white/10 bg-white/[0.01] p-12 md:p-20 flex flex-col gap-16 relative overflow-hidden group"
+                  className="border border-white/10 bg-white/[0.01] p-8 md:p-10 flex flex-col gap-8 relative overflow-hidden group"
                 >
                    <div className="absolute top-0 right-0 p-12 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity duration-1000">
                       <User className="w-96 h-96 -mr-32 -mt-32" />
                    </div>
 
-                   <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start relative z-10">
-                      <div className="md:col-span-5 space-y-10">
-                        <div className="space-y-4">
+                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-start relative z-10">
+                      <div className="md:col-span-4 space-y-5">
+                        <div className="space-y-3">
                            <p className="text-label text-primary opacity-60">ARCHETYPE 02</p>
-                           <h3 className="text-6xl font-serif font-light leading-[0.9] tracking-tighter">"Yiming <br/><span className="italic opacity-40">Wang"</span></h3>
+                           <h3 className="text-5xl md:text-[3.2rem] font-serif font-light leading-[0.88] tracking-tighter">"Yiming <br/><span className="italic opacity-40">Wang"</span></h3>
                         </div>
-                        <div className="aspect-[4/5] bg-neutral-900 border border-primary/10 overflow-hidden p-6 relative">
+                        <div className="aspect-[4/3] md:aspect-[5/4] bg-neutral-900 border border-primary/10 overflow-hidden p-3 relative">
                            <img src={IMAGES.person2} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" referrerPolicy="no-referrer" />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                           <div className="absolute bottom-10 left-10">
-                              <p className="text-xs uppercase tracking-widest text-primary/40">32, Suzhou Local Resident</p>
+                           <div className="absolute bottom-4 left-4 right-4">
+                              <p className="text-[9px] uppercase tracking-[0.22em] text-primary/40">32, Suzhou Local Resident</p>
                            </div>
                         </div>
                       </div>
                       
-                      <div className="md:col-span-7 space-y-16">
-                         <div className="italic text-primary/60 text-2xl leading-relaxed border-l-4 border-primary/20 pl-10 py-2">
+                      <div className="md:col-span-8 space-y-6">
+                         <div className="italic text-primary/60 text-xl md:text-2xl leading-relaxed border-l-4 border-primary/20 pl-6 py-1">
                             “I know Maple Bridge is famous, but I still want a better reason to stay and explore.”
                          </div>
 
-                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-                            <div>
-                               <p className="text-label mb-4 text-primary opacity-40">BACKGROUND</p>
-                               <p className="text-base text-primary/50 leading-relaxed font-light">Age 32, professional living in Suzhou. Has seen the bridge many times but seeks deeper connection.</p>
+                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                            <div className="min-w-0">
+                               <p className="text-label mb-2 text-primary opacity-40">BACKGROUND</p>
+                               <p className="text-sm md:text-[15px] text-primary/50 leading-6 font-light">Age 32, professional living in Suzhou. Has seen the bridge many times but seeks deeper connection.</p>
                             </div>
-                            <div>
-                               <p className="text-label mb-4 text-primary opacity-40">GOALS</p>
-                               <p className="text-base text-primary/50 leading-relaxed font-light">Rediscover Maple Bridge in a more meaningful way, better understand cultural background, share with family/friends.</p>
+                            <div className="min-w-0">
+                               <p className="text-label mb-2 text-primary opacity-40">GOALS</p>
+                               <p className="text-sm md:text-[15px] text-primary/50 leading-6 font-light">Rediscover Maple Bridge in a more meaningful way, better understand cultural background, share with family/friends.</p>
                             </div>
-                            <div>
-                               <p className="text-label mb-4 text-primary opacity-40">NEEDS</p>
-                               <p className="text-base text-primary/50 leading-relaxed font-light">Stronger storytelling, engaging interaction, and a structured visiting experience.</p>
+                            <div className="min-w-0">
+                               <p className="text-label mb-2 text-primary opacity-40">NEEDS</p>
+                               <p className="text-sm md:text-[15px] text-primary/50 leading-6 font-light">Stronger storytelling, engaging interaction, and a structured visiting experience.</p>
                             </div>
                             <div>
                                <p className="text-label mb-4 text-primary opacity-40">PAIN POINTS</p>
@@ -327,8 +338,8 @@ export default function App() {
                             </div>
                          </div>
 
-                         <div className="pt-10">
-                            <a href="#research" className="btn-primary inline-flex items-center gap-6 px-12 h-16 group/btn">
+                         <div className="pt-1">
+                            <a href="#research" className="btn-primary inline-flex items-center gap-4 px-8 h-12 group/btn">
                                Analyze Experience Requirements
                                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform opacity-40" />
                             </a>
@@ -391,67 +402,47 @@ export default function App() {
           </div>
         </section>
 
-        {/* User Journey Map - RESTORED FULL DETAIL */}
+        {/* User Journey Map */}
         <section id="research" className="py-40 bg-surface p-8 md:p-16 lg:p-32 border-t border-white/10">
           <div className="max-w-7xl mx-auto">
-            <header className="mb-32">
+            <header className="mb-20 max-w-5xl">
               <p className="text-label mb-6 tracking-[0.5em]">Phase One: Semantic Research</p>
-              <h2 className="text-6xl md:text-7xl font-serif font-light leading-[1.05] tracking-tight">Requirement Traceability <br/><span className="italic opacity-60">&amp; User Journey Map</span></h2>
+              <h2 className="text-6xl md:text-7xl font-serif font-light leading-[1.05] tracking-tight">
+                Detailed <span className="italic opacity-60">Journey Maps</span>
+              </h2>
+              <p className="mt-8 text-lg md:text-xl text-white/50 font-light leading-relaxed">
+                The journey-map section now uses the two image boards you placed in the `journalmap` folder. They stay side by side on larger screens for comparison, then automatically stack when the window gets too narrow.
+              </p>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { 
-                  stage: "01", title: "Arrival", 
-                  action: "Initial orientation, rapid navigation through landing nodes, establishing geographic context.", 
-                  emotion: "Curiosity tinged with caution; seeking immediate utility and aesthetic confirmation.", 
-                  pain: "Information density overload, high visual noise from competing UI elements.", 
-                  opp: "Implement the 'Nocturne' aesthetic to reduce visual friction and eye strain." 
-                },
-                { 
-                  stage: "02", title: "Exploration", 
-                  action: "Deep browsing through categorical archives, cross-referencing artifacts with historical timelines.", 
-                  emotion: "Growing intrigue; user begins to connect disparate narrative threads.", 
-                  pain: "Contextual metadata loss when navigating between nested categories.", 
-                  opp: "Apply asymmetric grid patterns to encourage a sense of organic discovery." 
-                },
-                { 
-                  stage: "03", title: "Engagement", 
-                  action: "Immersive deep reading, interaction with high-fidelity visual assets, media consumption.", 
-                  emotion: "Total immersion; emotional connection with the bridge narrative.", 
-                  pain: "Static UI fatigue, difficulty focusing on prolonged text blocks.", 
-                  opp: "Develop a 'Receding UI' strategy where interface elements dissolve during deep focus." 
-                },
-                { 
-                  stage: "04", title: "Departure", 
-                  action: "Finalizing research citations, exporting curated collections, saving session notes.", 
-                  emotion: "Intellectual closure and satisfaction; desire to share findings.", 
-                  pain: "Complex export settings, loss of curation hierarchy in static files.", 
-                  opp: "Introduce elegant, high-contrast action buttons for seamless data transition." 
-                }
-              ].map((item, idx) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-8 items-start">
+              {JOURNEY_MAP_IMAGES.map((map, idx) => (
                 <motion.div 
-                  key={item.stage}
+                  key={map.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.15 }}
+                  transition={{ delay: idx * 0.12 }}
                   viewport={{ once: true }}
-                  className="group bg-white/[0.01] p-12 border border-white/10 hover:border-white/30 transition-all duration-1000 relative flex flex-col"
+                  className="group border border-primary/20 bg-white/[0.02] p-3 md:p-4 xl:p-5 hover:border-primary/40 transition-all duration-700 relative overflow-hidden"
                 >
-                  <span className="text-label opacity-10 group-hover:opacity-100 transition-all duration-700">Stage {item.stage}</span>
-                  <h3 className="text-3xl font-serif italic font-light mt-6 mb-12 text-white/90 group-hover:translate-x-2 transition-transform duration-500">{item.title}</h3>
-                  <div className="space-y-10 flex-grow">
-                    {[
-                      { l: "Primary Actions", v: item.action },
-                      { l: "Emotional State", v: item.emotion },
-                      { l: "Identified Pain", v: item.pain },
-                      { l: "Design Leverage", v: item.opp }
-                    ].map(row => (
-                      <div key={row.l} className="group-hover:opacity-100 opacity-60 transition-opacity">
-                        <h4 className="text-[10px] uppercase tracking-[0.4em] text-white/30 mb-3 border-b border-white/5 pb-2 group-hover:border-primary/20 transition-colors">{row.l}</h4>
-                        <p className="text-[13px] text-white/60 leading-relaxed font-light">{row.v}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                  <div className="relative z-10">
+                    <div className="mb-4 flex items-center justify-between gap-4">
+                      <div>
+                        <p className="text-label mb-2">Journey Map</p>
+                        <h3 className="text-2xl md:text-3xl font-serif font-light">{map.name}</h3>
                       </div>
-                    ))}
+                      <p className="text-[10px] uppercase tracking-[0.35em] text-white/25 text-right">Image Board</p>
+                    </div>
+
+                    <div className="border border-white/10 bg-black/30 overflow-hidden">
+                      <img
+                        src={map.image}
+                        alt={`${map.name} journey map`}
+                        className="w-full h-auto object-contain object-top"
+                      />
+                    </div>
                   </div>
                 </motion.div>
               ))}
