@@ -19,6 +19,10 @@ const IMAGES = {
   wireframe2: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmaiQj5X_qTgy5hKmFFVZEL77xByJ2_6XpndN8M1Ml6z2-33ivfE0fo_mp7sL1sTn5uUMLXvFrcRCW5iWbueY1gW1fBgRqX9-2TljCKxFCs8qIds8iHI-a1rCs7kLlVVsWEwFh9kEgvo2Yp1tcp6h2A9lUUOorjNPMBy3lYCD3wR8YNiP48sxWBCg6OzDX0LWc5-z1yzJpHQ5kqkfzX--HFEtdOSDMIkxI7XXYQq74YrJOU6U0WU-2BMEq4h5LHEyD4ZNnlZgP1oET",
   person1: `${import.meta.env.BASE_URL}guo.png`,
   person2: `${import.meta.env.BASE_URL}yiming-wang.png`,
+  collectiveChai: `${import.meta.env.BASE_URL}collective/Chai.jpg`,
+  collectiveDuan: `${import.meta.env.BASE_URL}collective/Duan.jpg`,
+  collectiveNie: `${import.meta.env.BASE_URL}collective/Nie.jpg`,
+  collectivePan: `${import.meta.env.BASE_URL}collective/Pan.jpg`,
 };
 
 const JOURNEY_MAP_IMAGES = [
@@ -79,7 +83,7 @@ export default function App() {
       </aside>
 
       {/* Mobile Nav */}
-      <nav className="xl:hidden fixed top-0 w-full z-50 glass-panel border-b border-white/5 h-20 px-6 flex justify-between items-center px-8">
+      <nav className="xl:hidden fixed top-0 w-full z-50 glass-panel border-b border-white/5 h-20 px-4 sm:px-8 flex justify-between items-center">
         <div className="text-xl font-serif italic font-light tracking-tighter">Maple Bridge</div>
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X className="w-6 h-6 stroke-[1.5]" /> : <Menu className="w-6 h-6 stroke-[1.5]" />}
@@ -146,7 +150,7 @@ export default function App() {
                   Transforming shallow visits into story-driven engagement at the historic Fengqiao scenic area. Transforming cultural heritage through digital innovation.
                 </p>
                 <div className="flex flex-col gap-6 pt-2">
-                   <a href="#goal" className="btn-primary group h-14 px-12 flex items-center justify-between min-w-[280px]">
+                   <a href="#goal" className="btn-primary group h-14 px-8 sm:px-12 flex items-center justify-between min-w-0 sm:min-w-[280px] w-full sm:w-fit gap-4">
                     Explore The Case
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform opacity-40" />
                   </a>
@@ -279,7 +283,7 @@ export default function App() {
                          </div>
 
                          <div className="pt-1">
-                            <a href="#research" className="btn-primary inline-flex items-center gap-4 px-8 h-12 group/btn">
+                            <a href="#research" className="btn-primary inline-flex items-center gap-4 px-6 sm:px-8 h-12 group/btn max-w-full">
                                View Detailed Journey
                                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform opacity-40" />
                             </a>
@@ -650,28 +654,24 @@ export default function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { name: "Zhang Wei", role: "UX Researcher", id: "01", bio: "Fusing ethnographic studies with digital interaction to preserve oral histories.", img: IMAGES.person1 },
-                { name: "Li Na", role: "Visual Architect", id: "02", bio: "Specializing in atmospheric UI and procedural generation of cultural patterns.", img: IMAGES.person1 },
-                { name: "Wang Chen", role: "System Engineer", id: "03", bio: "Architecting high-performance archival retrieval systems and low-latency rendering.", img: IMAGES.person1 },
-                { name: "Chen Lu", role: "Curation Lead", id: "04", bio: "Mapping historical semantic data into immersive educational narratives.", img: IMAGES.person1 }
+                { name: "Pan Chenwei", studentId: "2364486", img: IMAGES.collectivePan },
+                { name: "Zihan Chai", studentId: "2361580", img: IMAGES.collectiveChai },
+                { name: "Yichong Nie", studentId: "2362358", img: IMAGES.collectiveNie },
+                { name: "Qinglin Duan", studentId: "2364027", img: IMAGES.collectiveDuan }
               ].map((member, idx) => (
                 <motion.div 
-                  key={member.id}
+                  key={member.name}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white/[0.01] p-12 border border-white/10 hover:border-white/30 transition-all duration-1000 flex flex-col group"
+                  className="bg-white/[0.01] p-8 sm:p-12 border border-white/10 hover:border-white/30 transition-all duration-1000 flex flex-col group"
                 >
-                  <div className="w-32 h-32 rounded-none border border-white/10 overflow-hidden mb-12 p-1 group-hover:border-primary/40 transition-all duration-700 self-center">
+                  <div className="w-40 h-40 rounded-none border border-white/10 overflow-hidden mb-10 p-1 group-hover:border-primary/40 transition-all duration-700 self-center">
                     <div className="w-full h-full bg-neutral-900 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-all duration-1000">
-                      <img src={member.img} className="w-full h-full object-cover scale-150 translate-y-4" referrerPolicy="no-referrer" />
+                      <img src={member.img} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </div>
                   </div>
                   <div className="text-center">
-                    <p className="text-label mb-3 opacity-100 text-primary group-hover:tracking-[0.5em] transition-all duration-700">{member.role}</p>
-                    <h3 className="text-3xl font-serif italic text-white/80 mb-6">{member.name}</h3>
-                    <p className="text-[10px] uppercase tracking-widest text-white/20 mb-10">CORE_ID: MB-24-{member.id}</p>
-                    
-                    <div className="h-[1px] bg-white/5 w-full mb-8 group-hover:bg-primary/20 transition-colors" />
-                    <p className="text-xs text-white/30 leading-relaxed font-light group-hover:text-white/60 transition-colors italic">{member.bio}</p>
+                    <h3 className="text-3xl font-serif italic text-white/80 mb-5">{member.name}</h3>
+                    <p className="text-label opacity-70 text-primary transition-all duration-700">Student ID: {member.studentId}</p>
                   </div>
                 </motion.div>
               ))}
@@ -714,7 +714,7 @@ export default function App() {
             
             <div className="flex flex-col md:flex-row justify-between items-center pt-24 border-t border-white/5 gap-12">
               <div className="text-3xl font-serif italic font-light tracking-tighter opacity-100 text-gradient">Maple Bridge</div>
-              <div className="flex gap-20 text-[10px] uppercase tracking-[0.5em] font-bold text-white/10">
+              <div className="flex flex-wrap justify-center gap-6 md:gap-20 text-[10px] uppercase tracking-[0.35em] md:tracking-[0.5em] font-bold text-white/10">
                 {["LinkedIn", "Instagram", "Dribbble", "Behance"].map(link => (
                   <a key={link} href="#" className="hover:text-white transition-all cursor-pointer">/ {link}</a>
                 ))}
