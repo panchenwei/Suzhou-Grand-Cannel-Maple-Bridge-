@@ -293,47 +293,39 @@ const EVALUATION_POINTS = [
 
 const ARCHITECTURE_STEPS = [
   {
-    title: "User input",
-    detail: "Visitor taps the mobile menu, route point, story card, progress control or final product link.",
+    title: "Frontend React Web App",
+    detail: "The browser interface presents routes, stories, profile, community and AI guide interactions.",
   },
   {
-    title: "React state",
-    detail: "The interface stores temporary UI state such as open menu, active section, selected story and viewed progress.",
+    title: "localStorage progress",
+    detail: "Journey progress data is kept locally: score, visited spots, unlocked stories and collected seals.",
   },
   {
-    title: "Content data",
-    detail: "Static arrays hold research content, personas, route stories, evaluation notes and team information.",
+    title: "Backend API",
+    detail: "Account, profile, community post, comment, private message and AI guide features use a lightweight backend layer.",
   },
   {
-    title: "Rendered feedback",
-    detail: "The page updates visible cards, highlighted sections, navigation state and call-to-action feedback immediately.",
-  },
-  {
-    title: "Privacy boundary",
-    detail: "No account, form submission or personal database is required; interaction state stays client-side during the session.",
+    title: "Future database upgrade",
+    detail: "A cloud database could support cross-device records, long-term memory pin storage and administrator analytics.",
   },
 ];
 
-const DATA_EVIDENCE = [
+const DATA_GROUPS = [
   {
-    input: "Navigation/menu tap",
-    state: "isMenuOpen controls whether the mobile navigation overlay is visible.",
-    feedback: "Users receive immediate open/close feedback, supporting visibility of system status.",
+    label: "Data handled locally",
+    items: ["Score records", "Visited spots", "Unlocked stories", "Collected seals"],
   },
   {
-    input: "Route or story selection in the final web app",
-    state: "The active story point changes the displayed cultural fragment and progress context.",
-    feedback: "Visitors can see which part of the Maple Bridge route they are exploring and what to do next.",
+    label: "Data handled through backend API",
+    items: ["Login and registration", "User profile", "Community posts", "Comments", "Private messages", "AI guide interactions"],
   },
   {
-    input: "Prototype link / external CTA",
-    state: "The portfolio preserves context while opening the deployed system in a new browser tab.",
-    feedback: "Assessors can move from process evidence to the functional high-fidelity system directly.",
+    label: "Temporary prototype state",
+    items: ["Custom route memory pins"],
   },
   {
-    input: "Responsive viewport change",
-    state: "Layout state is handled through responsive CSS and component structure rather than separate pages.",
-    feedback: "The same content remains readable on mobile and desktop, matching the mobile on-site track.",
+    label: "Future database upgrade",
+    items: ["Cross-device user records", "Long-term memory pin storage", "Admin dashboard and analytics"],
   },
 ];
 
@@ -791,13 +783,13 @@ export default function App() {
                 </h2>
               </div>
               <p className="max-w-xl text-sm leading-relaxed text-white/58">
-                Evidence of how the web app manages user input and temporary interaction states.
+                Evidence of how the final prototype manages user input, journey progress, account features and social interaction states.
               </p>
             </header>
 
             <div className="mb-8 border border-primary/25 bg-white/[0.035] p-5 md:p-6">
               <p className="text-label mb-5">System architecture diagram</p>
-              <div className="grid gap-3 lg:grid-cols-5">
+              <div className="grid gap-3 lg:grid-cols-4">
                 {ARCHITECTURE_STEPS.map((step, idx) => (
                   <article key={step.title} className="relative border border-white/10 bg-black/25 p-4">
                     <p className="mb-3 font-serif text-3xl italic text-primary-bright/70">0{idx + 1}</p>
@@ -812,30 +804,45 @@ export default function App() {
             </div>
 
             <div className="grid gap-5 lg:grid-cols-12">
-              <div className="lg:col-span-4">
+              <div className="lg:col-span-5">
                 <div className="border border-primary/25 bg-primary/[0.07] p-5">
                   <p className="text-label mb-4">Evidence summary</p>
-                  <h3 className="mb-4 font-serif text-2xl italic text-white">Client-side and privacy-light</h3>
-                  <p className="text-sm leading-relaxed text-white/66">
-                    The portfolio and final product are designed as lightweight React web pages. User actions change visible interface state, but the prototype does not require login, personal profiles or a remote database. This is suitable for an on-site heritage experience because visitors can open the public URL quickly, interact briefly and return attention to Maple Bridge.
-                  </p>
+                  <h3 className="mb-4 font-serif text-2xl italic text-white">Hybrid data handling</h3>
+                  <div className="grid gap-4 text-sm leading-relaxed text-white/66">
+                    <p>
+                      The final system prototype uses a hybrid data-handling approach. Journey progress data, including scores, visited spots, unlocked stories, and collected seals, is stored in the browser through localStorage. This allows users to keep their cultural exploration progress after refreshing the page without requiring a full database for every interaction.
+                    </p>
+                    <p>
+                      In addition, the final DemoSystem includes a lightweight backend API to support account-related and community-based features, including login, registration, user profiles, community posts, comments, private messages, and AI guide interactions. This backend layer demonstrates how the system can manage dynamic user input and social interaction data beyond local browser storage.
+                    </p>
+                    <p>
+                      Custom memory pins are currently treated as temporary route interaction states in the prototype. They support the user journey demonstration, but they are not described as fully persistent database records in the current version.
+                    </p>
+                    <p>
+                      This structure matches the coursework requirement to show evidence of how the system manages user input and interaction states. It also keeps the prototype practical and deployable while leaving room for future development, such as a full cloud database, cross-device synchronisation, and administrator-level data management.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-2 lg:col-span-8">
-                {DATA_EVIDENCE.map((item, idx) => (
-                  <article key={item.input} className="border border-primary/20 bg-white/[0.035] p-5">
+              <div className="grid gap-3 md:grid-cols-2 lg:col-span-7">
+                {DATA_GROUPS.map((group, idx) => (
+                  <article key={group.label} className="border border-primary/20 bg-white/[0.035] p-5">
                     <div className="mb-4 flex items-start gap-4">
                       <span className="font-serif text-3xl italic text-primary-bright/70">0{idx + 1}</span>
                       <div>
                         <p className="text-label mb-2">Input and state evidence</p>
-                        <h3 className="font-serif text-xl italic text-white">{item.input}</h3>
+                        <h3 className="font-serif text-xl italic text-white">{group.label}</h3>
                       </div>
                     </div>
-                    <div className="grid gap-3 text-xs leading-relaxed text-white/64">
-                      <p><span className="text-primary-bright">Managed state: </span>{item.state}</p>
-                      <p><span className="text-primary-bright">User feedback: </span>{item.feedback}</p>
-                    </div>
+                    <ul className="grid gap-2 text-xs leading-relaxed text-white/64">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary-bright" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </article>
                 ))}
               </div>
