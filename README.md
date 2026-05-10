@@ -1,13 +1,14 @@
-# Maple Bridge Echoes - Process Portfolio
+# Maple Bridge / Suzhou Whispers - Process Portfolio
 
-This repository contains the CPT208 Human-Centric Computing process portfolio for **Maple Bridge Echoes**, a user-centred cultural heritage web experience for the Suzhou Grand Canal / Maple Bridge topic.
+This repository contains the CPT208 Human-Centric Computing process portfolio for **Maple Bridge / Suzhou Whispers**, a user-centred cultural heritage web experience for the Suzhou Grand Canal / Maple Bridge topic.
 
 ## Submission Information
 
 | Item | Details |
 | --- | --- |
+| Group ID | A2-1 |
+| Project Title | Maple Bridge / Suzhou Whispers |
 | Module | CPT208 Human-Centric Computing |
-| Track | A2 / Suzhou Grand Canal - Maple Bridge |
 | Submission | Process Portfolio + Web Prototype |
 | Platform | GitHub Pages / React / Vite |
 | Team | Pan Chenwei, Zihan Chai, Yichong Nie, Qinglin Duan |

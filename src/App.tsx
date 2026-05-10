@@ -94,10 +94,10 @@ const COURSE_ALIGNMENT = [
 ];
 
 const PROJECT_INFO = [
+  { label: "Group ID", value: "A2-1" },
+  { label: "Project Title", value: "Maple Bridge / Suzhou Whispers" },
   { label: "Module", value: "CPT208 Human-Centric Computing" },
-  { label: "Track", value: "A2 / Suzhou Grand Canal - Maple Bridge" },
   { label: "Submission", value: "Process Portfolio + Web Prototype" },
-  { label: "Platform", value: "GitHub Pages / React / Vite" },
 ];
 
 const RESEARCH_METHODS = [
