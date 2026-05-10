@@ -5,16 +5,17 @@
   --font-serif: "Noto Serif", serif;
   --font-sans: "Manrope", sans-serif;
 
-  --color-surface: #000000;
-  --color-surface-low: #050505;
-  --color-surface-container: #0a0a0a;
-  --color-surface-high: #111111;
-  --color-surface-lowest: #000000;
-  --color-surface-bright: #151515;
+  --color-surface: #040403;
+  --color-surface-low: #0a0907;
+  --color-surface-container: #11100c;
+  --color-surface-high: #19160f;
+  --color-surface-lowest: #020202;
+  --color-surface-bright: #211c12;
   
-  --color-primary: #C5A059;
-  --color-primary-container: #8E7341;
-  --color-secondary: #705E3F;
+  --color-primary: #D9B869;
+  --color-primary-bright: #F3D58A;
+  --color-primary-container: #A9853F;
+  --color-secondary: #907347;
   
   --color-on-surface-variant: rgba(212, 175, 55, 0.4);
 }
@@ -23,10 +24,11 @@
   html {
     overflow-x: hidden;
     scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-surface text-[#D1C9BC] font-sans antialiased font-light;
+    @apply bg-surface text-[#EFE7D7] font-sans antialiased font-light;
     overflow-x: hidden;
   }
 
@@ -63,8 +65,23 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .text-label {
-  @apply text-[10px] uppercase tracking-[0.3em] font-medium text-primary/60;
+  @apply text-[10px] uppercase tracking-[0.3em] font-semibold text-primary-bright/80;
 }
 
 .glass-panel {
@@ -72,13 +89,13 @@
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #D4AF37, #C5A059, #8E7341);
+  background: linear-gradient(135deg, #FFF2C4, #F3D58A, #D9B869);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .btn-primary {
-  @apply border border-primary/20 bg-primary/[0.03] text-primary/80 px-6 py-2 rounded-none font-light tracking-[0.2em] text-[10px] uppercase hover:bg-primary/[0.08] hover:border-primary/40 transition-all duration-500;
+  @apply border border-primary/40 bg-primary/[0.09] text-white px-6 py-2 rounded-none font-semibold tracking-[0.2em] text-[10px] uppercase hover:bg-primary/20 hover:border-primary-bright hover:text-primary-bright transition-all duration-500;
 }
 
 .ghost-border {
