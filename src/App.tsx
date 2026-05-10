@@ -93,6 +93,13 @@ const COURSE_ALIGNMENT = [
   },
 ];
 
+const PROJECT_INFO = [
+  { label: "Module", value: "CPT208 Human-Centric Computing" },
+  { label: "Track", value: "A2 / Suzhou Grand Canal - Maple Bridge" },
+  { label: "Submission", value: "Process Portfolio + Web Prototype" },
+  { label: "Platform", value: "GitHub Pages / React / Vite" },
+];
+
 const RESEARCH_METHODS = [
   "Desk research on Chang Gate, Maple Bridge, Grand Canal heritage and the poem A Night Mooring by Maple Bridge.",
   "Semi-structured interviews with XJTLU students and local visitors to understand motivation, confusion and expectations.",
@@ -367,10 +374,10 @@ const AI_REFERENCES = [
 ];
 
 const TEAM = [
-  { name: "Pan Chenwei", studentId: "2364486", img: IMAGES.collectivePan },
-  { name: "Zihan Chai", studentId: "2361580", img: IMAGES.collectiveChai },
-  { name: "Yichong Nie", studentId: "2362358", img: IMAGES.collectiveNie },
-  { name: "Qinglin Duan", studentId: "2364027", img: IMAGES.collectiveDuan },
+  { name: "Pan Chenwei", studentId: "2364486", img: IMAGES.collectivePan, contribution: "Deployment, portfolio integration and final product connection" },
+  { name: "Zihan Chai", studentId: "2361580", img: IMAGES.collectiveChai, contribution: "Research synthesis, content editing and AI-use documentation" },
+  { name: "Yichong Nie", studentId: "2362358", img: IMAGES.collectiveNie, contribution: "Journey-map evidence, user requirements and evaluation notes" },
+  { name: "Qinglin Duan", studentId: "2364027", img: IMAGES.collectiveDuan, contribution: "Visual assets, prototype evidence and team presentation materials" },
 ];
 
 function SectionHeader({
@@ -482,11 +489,20 @@ export default function App() {
             </a>
           </div>
 
+          <div className="relative z-10 mt-10 grid max-w-6xl gap-3 border-y border-white/10 py-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PROJECT_INFO.map((item) => (
+              <div key={item.label}>
+                <p className="text-label mb-2 text-primary-bright/70">{item.label}</p>
+                <p className="text-sm leading-relaxed text-white/72">{item.value}</p>
+              </div>
+            ))}
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="relative z-10 mt-28 max-w-6xl"
+            className="relative z-10 mt-20 max-w-6xl"
           >
             <h1 className="font-serif text-7xl font-light leading-[0.86] tracking-tight text-white md:text-9xl lg:text-[11rem]">
               Maple Bridge <span className="block italic text-primary-bright">Echoes</span>
@@ -904,6 +920,14 @@ export default function App() {
               title="Team Contribution"
               text="The team combined research synthesis, visual design, prototype development and deployment into one public-facing portfolio."
             />
+            <div className="mb-10 grid gap-4 border-y border-primary/15 py-6 md:grid-cols-4">
+              {PROJECT_INFO.map((item) => (
+                <div key={item.label}>
+                  <p className="text-label mb-2">{item.label}</p>
+                  <p className="text-sm leading-relaxed text-white/64">{item.value}</p>
+                </div>
+              ))}
+            </div>
             <div className="grid gap-6 md:grid-cols-4">
               {TEAM.map((member) => (
                 <article key={member.name} className="border border-primary/20 bg-white/[0.035] p-7 text-center transition-colors duration-500 hover:border-primary-bright">
@@ -912,6 +936,7 @@ export default function App() {
                   </div>
                   <h3 className="mb-4 font-serif text-2xl italic text-white">{member.name}</h3>
                   <p className="text-label text-primary-bright">Student ID: {member.studentId}</p>
+                  <p className="mt-5 text-sm leading-relaxed text-white/58">{member.contribution}</p>
                 </article>
               ))}
             </div>
